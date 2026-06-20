@@ -266,7 +266,7 @@ static void update_scale_factors(void) {
     }
 }
 
-static void save_calibration_value(uint8_t row, uint8_t col) {
+/*static void save_calibration_value(uint8_t row, uint8_t col) {
     static uint8_t eeprom_calibrated;
 
     if (eeprom_calibrated != calibrated) {
@@ -285,7 +285,7 @@ static void save_calibration_value(uint8_t row, uint8_t col) {
 
     addr = EECONFIG_BASE_SIZE + CALIBRATED_CONFIG_START + offset;
     eeprom_update_block(&saved_calib_values[row][col], (uint8_t *)addr, sizeof(saved_calib_values[0][0]));
-}
+}*/
 
 static void save_calibration_values(void) {
     // Save to external EEPROM
@@ -545,7 +545,7 @@ void auto_caliration_check(uint8_t row, uint8_t col, uint16_t value) {
                         /* Save */
                         saved_calib_values[row][col].zero_travel = calib_values[row][col].zero_travel;
                         saved_calib_values[row][col].full_travel = calib_values[row][col].full_travel;
-                        save_calibration_value(row, col);
+                        //save_calibration_value(row, col);
                     } else {
                         calib_values[row][col].full_travel = p->value.full_travel - 15;
                     }
